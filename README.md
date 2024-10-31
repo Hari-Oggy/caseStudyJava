@@ -9,10 +9,11 @@ this is a simple **Tcp** and **Udp** project that using ipv6
 TO start the server you just run the command
 
 > if you on windows
-    go the directory that contains ***gradlew.bat*** and run the command :--- 
-    ```
-    ./gradlew.bat run 
-    ```
+    go the directory that contains ***gradlew.bat*** and run the command :---
+
+```bash
+./gradlew.bat run
+ ```
     
     
 > if you on linux(ubuntu,kali,etc.....)
