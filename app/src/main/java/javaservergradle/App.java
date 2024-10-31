@@ -6,18 +6,23 @@ import javaservergradle.com.hareesh.Tcp6Server;
 import javaservergradle.com.hareesh.Udp6Server;
 
 
+
+
 public class App {
 
-    public void selectServerTcpOrUdp(){
+
+    static public void selectServerTcpOrUdp(){
         System.out.println("-".repeat(20)+"Select TCP(1) or UDP(2)"+"-".repeat(20));
         Scanner sc = new Scanner(System.in);
-        int choice ;
+        String choice ;
         String continues;
         
+      try {
         do { 
             System.out.println("-".repeat(10)+"Enter your choice:"+"-".repeat(10));
-            choice=sc.nextInt();
-            switch (choice) {
+            choice=sc.nextLine();
+            int val =Integer.parseInt(choice);
+            switch (val) {
                 case 1 -> {
                     Tcp6Server server= Tcp6Server.getInstance();
                     server.getServerStart();
@@ -34,14 +39,15 @@ public class App {
                 }
                 
             }
-            
-            
             System.out.println("Enter your (yes) if wnat continue:");
             continues = sc.nextLine();
         } while (continues.equals("yes"));
+      } catch (Exception e) {
+        System.out.println("error occured"+e.getMessage());
+      }
     }
     public static void main(String[] args){
-
+        selectServerTcpOrUdp();
     }
 
 }

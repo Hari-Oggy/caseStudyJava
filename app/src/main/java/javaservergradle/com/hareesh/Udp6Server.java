@@ -7,36 +7,36 @@ import java.net.DatagramSocket;
 import java.net.Inet6Address;
 
 public class Udp6Server {
-    // Singleton instance
+
     private static Udp6Server instance;
-    final int port = 9000; // Port for the UDP server
-    String saveFilePath = "../../../../../../../savedfile/received_fileUdp6.txt"; // Path for saving received files
-    String ipv6Address = IPv6AddressFetcher.getIPv6Address(); // Fetch the IPv6 address
+    final int port = 9001; // Port for the UDP server
+    String saveFilePath = "/home/hareesh/Desktop/code/JavaServerGradle/app/collect/received_file.txt";
+    String ipv6Address = IPv6AddressFetcher.getIPv6Address(); 
 
     // Private constructor
     private Udp6Server() {
     }
 
-    @SuppressWarnings("DoubleCheckedLocking") // Suppress warning for double-checked locking
+    @SuppressWarnings("DoubleCheckedLocking") 
     public static Udp6Server getInstance() {
         if (instance == null) {
             synchronized (Udp6Server.class) {
                 if (instance == null) {
-                    instance = new Udp6Server(); // Create instance
+                    instance = new Udp6Server(); 
                 }
             }
         }
-        return instance; // Return the single instance
+        return instance; 
     }
 
     public void startUdpServer() {
         if (ipv6Address == null) {
             System.out.println("No IPv6 address found. Exiting...");
-            return; // Exit if no IPv6 address
+            return; 
         }
 
         try (DatagramSocket socket = new DatagramSocket(port, Inet6Address.getByName(ipv6Address))) {
-            System.out.println("UDP Server is listening on port " + port);
+            System.out.println("UDP6 Server is listening on port " + port);
 
             // Create a buffer for receiving data
             byte[] buffer = new byte[4096];

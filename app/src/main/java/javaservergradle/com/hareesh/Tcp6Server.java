@@ -8,17 +8,16 @@ import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import redis.clients.jedis.Jedis;
 
 public class Tcp6Server {
     private static Tcp6Server instance; // Static instance for Singleton
     final int port = 9000;
-    String saveFilePath = "../../../../../../../savedfile/received_file.txt";
+    String saveFilePath = "/home/hareesh/Desktop/code/JavaServerGradle/app/collect/received_file.txt";
     String addr6 = IPv6AddressFetcher.getIPv6Address();
 
     // Private constructor to prevent instantiation
     private Tcp6Server() {
-          Jedis jedis = new Jedis("localhost", 6379); 
+        //   Jedis jedis = new Jedis("localhost", 6379); 
     }
 
     // Public method to provide access to the instance
@@ -37,7 +36,7 @@ public class Tcp6Server {
     public void getServerStart() {
         try (ServerSocket serverSocket = new ServerSocket()) {
             serverSocket.bind(new InetSocketAddress(addr6, port)); // Bind directly to IPv6 address
-            System.out.println("Server is listening on IPv6 address " + addr6 + " port: " + port);
+            System.out.println("Servertcp6 is listening on IPv6 address " + addr6 + " port: " + port);
 
             while (true) {
                 try (Socket socket = serverSocket.accept();
