@@ -26,9 +26,10 @@ TO start the server you just run the command
     then run the client side logic 
 
 
->first clone the project using git first ensure you have git 
-    ```git
-    git clone "https://github.com/Hari-Oggy/caseStudyJava.git"
-    ```
+>first clone the project using git first ensure you have git
+
+```git
+git clone "https://github.com/Hari-Oggy/caseStudyJava.git"
+```
 
     
