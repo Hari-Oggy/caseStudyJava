@@ -25,4 +25,10 @@ TO start the server you just run the command
 # select 1(tcp) or 2(udp)
     then run the client side logic 
 
+
+>first clone the project using git first ensure you have git 
+    ```git
+    git clone "https://github.com/Hari-Oggy/caseStudyJava.git"
+    ```
+
     
