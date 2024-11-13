@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import javaservergradle.com.hareesh.Tcp6Server;
 import javaservergradle.com.hareesh.Udp6Server;
+import javaservergradle.com1.pubsub.RedisPublisher;
 
 
 
@@ -31,6 +32,11 @@ public class App {
                 case 2 -> {
                     Udp6Server udp =  Udp6Server.getInstance();
                     udp.startUdpServer();
+                    System.out.println("pubsub started");
+                }
+                case 3 -> {
+                    RedisPublisher rp = new RedisPublisher("localhost", 6379);
+                    rp.redisServerPub();
                 }
                 default -> {
                     System.out.println("Invalid choice! Please enter a number between 1 and 5.");
@@ -42,8 +48,10 @@ public class App {
             System.out.println("Enter your (yes) if wnat continue:");
             continues = sc.nextLine();
         } while (continues.equals("yes"));
-      } catch (Exception e) {
+      } catch (NumberFormatException e) {
         System.out.println("error occured"+e.getMessage());
+      }catch(Exception e){
+        System.err.println("error"+e.getMessage());
       }
     }
     public static void main(String[] args){
